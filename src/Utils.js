@@ -135,8 +135,8 @@ export async function processDailyData(data){
 
   for(let i=0; i<6; i++){
     let dayForecast = {
-      maxTemperature: dataToProcess.daily[i].temp.max+"°",
-      minTemperature: dataToProcess.daily[i].temp.min+"°",
+      maxTemperature: roundTemperature(dataToProcess.daily[i].temp.max)+"°",
+      minTemperature: roundTemperature(dataToProcess.daily[i].temp.min)+"°",
       humidity: dataToProcess.daily[i].humidity+"%",
       icon: dataToProcess.daily[i].weather[0].icon,
       date: convertUtcToDay(dataToProcess.daily[i].dt),
@@ -151,6 +151,11 @@ export async function processDailyData(data){
 
 }
 
+function roundTemperature(temp) {
+  let roundTemp = Math.round(parseFloat(temp));
+  return roundTemp; //If you need it back as a Number    
+}
+
 
 export async function processHourlyData(data) {
 
@@ -160,7 +165,7 @@ export async function processHourlyData(data) {
   for(let i=0; i<8; i++){
     
     let hourForecast = {
-      temperature: dataToProcess.hourly[i].temp+"°",
+      temperature: roundTemperature(dataToProcess.hourly[i].temp)+"°",
       humidity: dataToProcess.hourly[i].humidity+"%",
       icon: dataToProcess.hourly[i].weather[0].icon,
       time: convertUtcToTime(dataToProcess.hourly[i].dt)
