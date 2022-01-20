@@ -153,7 +153,7 @@ export async function processDailyData(data){
 
 function roundTemperature(temp) {
   let roundTemp = Math.round(parseFloat(temp));
-  return roundTemp; //If you need it back as a Number    
+  return roundTemp;   
 }
 
 
