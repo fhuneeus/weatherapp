@@ -8,7 +8,7 @@ import moment from 'moment';
 
 export default async function getData(latitude, longitude) {
 
-  let apiKey = "df2469f49522faeb2e0819ede3518475";
+  let apiKey = "1f89da47fe4d0be6bbbf376af70bdb58";
   let url = "https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&exclude=minutely&appid="+apiKey+"&units=metric";
 
   let response = await fetch(url);
